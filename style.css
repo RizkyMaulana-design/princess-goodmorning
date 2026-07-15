@@ -1,0 +1,454 @@
+/* =======================================
+   Google Font
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+/* =======================================
+   Background
+======================================= */
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+    180deg,
+    #07071d,
+    #120b38,
+    #1f0f4f,
+    #090919);
+
+    color:white;
+    position:relative;
+}
+
+/* =======================================
+   Stars
+======================================= */
+
+.stars{
+
+    position:fixed;
+    inset:0;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    opacity:.35;
+
+    animation:starsMove 120s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-1000px);
+
+}
+
+}
+
+/* =======================================
+   Aurora
+======================================= */
+
+.gradient{
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:
+
+radial-gradient(circle,
+
+rgba(149,76,233,.35),
+
+transparent 70%);
+
+filter:blur(70px);
+
+animation:floatGlow 10s infinite alternate;
+
+}
+
+@keyframes floatGlow{
+
+0%{
+
+transform:translate(-100px,-80px);
+
+}
+
+100%{
+
+transform:translate(120px,80px);
+
+}
+
+}
+
+/* =======================================
+Container
+======================================= */
+
+.container{
+
+width:100%;
+
+display:flex;
+
+justify-content:center;
+
+padding:20px;
+
+z-index:5;
+
+}
+
+/* =======================================
+Glass
+======================================= */
+
+.glass{
+
+width:100%;
+
+max-width:380px;
+
+padding:25px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+
+0 0 60px rgba(152,85,255,.45);
+
+text-align:center;
+
+animation:cardUp 1.2s ease;
+
+}
+
+@keyframes cardUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* =======================================
+Title
+======================================= */
+
+.title{
+
+font-size:40px;
+
+font-weight:700;
+
+margin-bottom:5px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#ffffff,
+
+#ffbdfc,
+
+#d58cff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.subtitle{
+
+font-size:28px;
+
+color:#dca8ff;
+
+margin-bottom:25px;
+
+}
+
+/* =======================================
+Photo
+======================================= */
+
+.photoBox{
+
+width:240px;
+
+height:320px;
+
+margin:auto;
+
+border-radius:30px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 0 40px rgba(197,120,255,.55);
+
+animation:floating 4s ease-in-out infinite;
+
+}
+
+.photoBox img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:.6s;
+
+}
+
+.photoBox:hover img{
+
+transform:scale(1.05);
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* =======================================
+Text
+======================================= */
+
+.textBox{
+
+margin-top:25px;
+
+line-height:1.9;
+
+font-size:15px;
+
+color:#ece8ff;
+
+}
+
+.textBox p{
+
+margin-bottom:12px;
+
+}
+
+/* =======================================
+Button
+======================================= */
+
+#next{
+
+margin-top:18px;
+
+width:100%;
+
+padding:16px;
+
+font-size:18px;
+
+font-weight:600;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+color:white;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#8c52ff,
+
+#c64dff,
+
+#ff63b6);
+
+box-shadow:
+
+0 0 25px #8c52ff;
+
+transition:.35s;
+
+animation:pulse 2s infinite;
+
+}
+
+#next:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+
+0 0 50px #ff6ad5;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:
+
+0 0 15px #8c52ff;
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 40px #ff70ff;
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 15px #8c52ff;
+
+}
+
+}
+
+/* =======================================
+HP Responsive
+======================================= */
+
+@media(max-width:430px){
+
+.title{
+
+font-size:34px;
+
+}
+
+.subtitle{
+
+font-size:24px;
+
+}
+
+.photoBox{
+
+width:210px;
+
+height:290px;
+
+}
+
+.textBox{
+
+font-size:14px;
+
+}
+
+}
+
+@media(max-width:360px){
+
+.glass{
+
+padding:18px;
+
+}
+
+.photoBox{
+
+width:190px;
+
+height:260px;
+
+}
+
+.title{
+
+font-size:30px;
+
+}
+
+.subtitle{
+
+font-size:20px;
+
+}
+
+}
