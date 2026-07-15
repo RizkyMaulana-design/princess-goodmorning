@@ -1,5 +1,5 @@
 /* =======================================
-   Google Font
+    Google Font & Global Reset
 ======================================= */
 
 *{
@@ -9,446 +9,252 @@
     font-family:'Poppins',sans-serif;
 }
 
-html,body{
+html, body{
     width:100%;
-    height:100%;
-    overflow:hidden;
+    min-height:100%; /* Menggunakan min-height agar fleksibel mengikuti panjang konten */
+    overflow-x:hidden;
+    overflow-y:auto; /* MENGIZINKAN SCROLL: Agar tombol bawah tidak terpotong di HP */
+    background:linear-gradient(180deg, #07071d, #120b38, #1f0f4f, #090919);
 }
-
-/* =======================================
-   Background
-======================================= */
 
 body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(
-    180deg,
-    #07071d,
-    #120b38,
-    #1f0f4f,
-    #090919);
-
+    padding: 30px 0; /* Memberikan ruang aman di atas & bawah saat di-scroll */
     color:white;
     position:relative;
 }
 
 /* =======================================
-   Stars
+    Stars & Aurora (Fixed Background)
 ======================================= */
 
 .stars{
-
-    position:fixed;
+    position:fixed; /* Diubah ke fixed agar latar belakang diam saat konten di-scroll */
     inset:0;
-
-    background-image:
-    radial-gradient(white 1px,transparent 1px);
-
+    background-image: radial-gradient(white 1px,transparent 1px);
     background-size:45px 45px;
-
     opacity:.35;
-
     animation:starsMove 120s linear infinite;
-
+    z-index: 0;
 }
 
 @keyframes starsMove{
-
-from{
-
-transform:translateY(0);
-
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-1000px); }
 }
-
-to{
-
-transform:translateY(-1000px);
-
-}
-
-}
-
-/* =======================================
-   Aurora
-======================================= */
 
 .gradient{
-
-position:absolute;
-
-width:500px;
-height:500px;
-
-background:
-
-radial-gradient(circle,
-
-rgba(149,76,233,.35),
-
-transparent 70%);
-
-filter:blur(70px);
-
-animation:floatGlow 10s infinite alternate;
-
+    position:fixed; /* Diubah ke fixed agar pendaran aurora konsisten di layar */
+    width:500px;
+    height:500px;
+    background: radial-gradient(circle, rgba(149,76,233,.35), transparent 70%);
+    filter:blur(70px);
+    animation:floatGlow 10s infinite alternate;
+    z-index: 0;
 }
 
 @keyframes floatGlow{
-
-0%{
-
-transform:translate(-100px,-80px);
-
-}
-
-100%{
-
-transform:translate(120px,80px);
-
-}
-
+    0%{ transform:translate(-100px,-80px); }
+    100%{ transform:translate(120px,80px); }
 }
 
 /* =======================================
-Container
+    Container & Glass Card
 ======================================= */
 
 .container{
-
-width:100%;
-
-display:flex;
-
-justify-content:center;
-
-padding:20px;
-
-z-index:5;
-
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:0 20px;
+    z-index: 5;
 }
 
-/* =======================================
-Glass
-======================================= */
-
 .glass{
-
-width:100%;
-
-max-width:380px;
-
-padding:25px;
-
-border-radius:35px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(25px);
-
-border:1px solid rgba(255,255,255,.15);
-
-box-shadow:
-
-0 0 60px rgba(152,85,255,.45);
-
-text-align:center;
-
-animation:cardUp 1.2s ease;
-
+    width:100%;
+    max-width:380px;
+    padding:25px;
+    border-radius:35px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px); /* FIX UNTUK IPHONE: Agar efek blur kaca aktif di Safari iOS */
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow: 0 0 60px rgba(152,85,255,.45);
+    text-align:center;
+    animation:cardUp 1.2s ease;
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes cardUp{
-
-0%{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
+    0%{ opacity:0; transform:translateY(40px); }
+    100%{ opacity:1; transform:translateY(0); }
 }
 
 /* =======================================
-Title
+    Title & Subtitle
 ======================================= */
 
 .title{
-
-font-size:40px;
-
-font-weight:700;
-
-margin-bottom:5px;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#ffffff,
-
-#ffbdfc,
-
-#d58cff);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:5px;
+    background: linear-gradient(90deg, #ffffff, #ffbdfc, #d58cff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .subtitle{
-
-font-size:28px;
-
-color:#dca8ff;
-
-margin-bottom:25px;
-
+    font-size:28px;
+    color:#dca8ff;
+    margin-bottom:25px;
 }
 
 /* =======================================
-Photo
+    Photo Box
 ======================================= */
 
 .photoBox{
-
-width:240px;
-
-height:320px;
-
-margin:auto;
-
-border-radius:30px;
-
-overflow:hidden;
-
-box-shadow:
-
-0 0 40px rgba(197,120,255,.55);
-
-animation:floating 4s ease-in-out infinite;
-
+    width:240px;
+    height:320px;
+    margin:auto;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow: 0 0 40px rgba(197,120,255,.55);
+    animation:floating 4s ease-in-out infinite;
 }
 
 .photoBox img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-transition:.6s;
-
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
 }
 
 .photoBox:hover img{
-
-transform:scale(1.05);
-
+    transform:scale(1.05);
 }
 
 @keyframes floating{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-8px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
+    0%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+    100%{ transform:translateY(0); }
 }
 
 /* =======================================
-Text
+    Text Box
 ======================================= */
 
 .textBox{
-
-margin-top:25px;
-
-line-height:1.9;
-
-font-size:15px;
-
-color:#ece8ff;
-
+    margin-top:25px;
+    line-height:1.9;
+    font-size:15px;
+    color:#ece8ff;
 }
 
 .textBox p{
-
-margin-bottom:12px;
-
+    margin-bottom:12px;
 }
 
 /* =======================================
-Button
+    Button Next
 ======================================= */
 
 #next{
-
-margin-top:18px;
-
-width:100%;
-
-padding:16px;
-
-font-size:18px;
-
-font-weight:600;
-
-border:none;
-
-border-radius:50px;
-
-cursor:pointer;
-
-color:white;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#8c52ff,
-
-#c64dff,
-
-#ff63b6);
-
-box-shadow:
-
-0 0 25px #8c52ff;
-
-transition:.35s;
-
-animation:pulse 2s infinite;
-
+    margin-top:18px;
+    width:100%;
+    padding:16px;
+    font-size:18px;
+    font-weight:600;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    color:white;
+    background: linear-gradient(90deg, #8c52ff, #c64dff, #ff63b6);
+    box-shadow: 0 0 25px #8c52ff;
+    transition:.35s;
+    animation:pulse 2s infinite;
 }
 
 #next:hover{
-
-transform:scale(1.05);
-
-box-shadow:
-
-0 0 50px #ff6ad5;
-
+    transform:scale(1.05);
+    box-shadow: 0 0 50px #ff6ad5;
 }
 
 @keyframes pulse{
-
-0%{
-
-box-shadow:
-
-0 0 15px #8c52ff;
-
-}
-
-50%{
-
-box-shadow:
-
-0 0 40px #ff70ff;
-
-}
-
-100%{
-
-box-shadow:
-
-0 0 15px #8c52ff;
-
-}
-
+    0%{ box-shadow: 0 0 15px #8c52ff; }
+    50%{ box-shadow: 0 0 40px #ff70ff; }
+    100%{ box-shadow: 0 0 15px #8c52ff; }
 }
 
 /* =======================================
-HP Responsive
+    HP RESPONSIVE OPTIMIZATION (iPhone & Android)
 ======================================= */
 
 @media(max-width:430px){
+    body {
+        align-items: flex-start; /* Mengatur posisi card mulai dari atas agar teks pembuka aman */
+        padding: 20px 0 40px 0;
+    }
 
-.title{
+    .glass {
+        padding: 20px;
+        border-radius: 28px;
+    }
 
-font-size:34px;
+    .title{
+        font-size:32px; /* Disesuaikan agar pas di layar lebar smartphone */
+    }
 
-}
+    .subtitle{
+        font-size:22px;
+        margin-bottom:18px; /* Mengurangi ruang kosong vertikal */
+    }
 
-.subtitle{
+    .photoBox{
+        width:190px; /* Mengecilkan ukuran foto di HP agar ruang untuk teks & tombol lega */
+        height:260px;
+        border-radius: 22px;
+    }
 
-font-size:24px;
+    .textBox{
+        margin-top:20px;
+        font-size:14px;
+        line-height: 1.7;
+    }
+    
+    .textBox p {
+        margin-bottom: 8px;
+    }
 
-}
-
-.photoBox{
-
-width:210px;
-
-height:290px;
-
-}
-
-.textBox{
-
-font-size:14px;
-
-}
-
+    #next {
+        margin-top: 14px;
+        padding: 13px;
+        font-size: 16px; /* Merampingkan tombol agar tidak terpotong nav-bar Safari */
+    }
 }
 
 @media(max-width:360px){
+    .glass{
+        padding:18px;
+    }
 
-.glass{
+    .title{
+        font-size:28px;
+    }
 
-padding:18px;
+    .subtitle{
+        font-size:18px;
+    }
 
-}
-
-.photoBox{
-
-width:190px;
-
-height:260px;
-
-}
-
-.title{
-
-font-size:30px;
-
-}
-
-.subtitle{
-
-font-size:20px;
-
-}
-
+    .photoBox{
+        width:170px;
+        height:230px;
+    }
+    
+    .textBox {
+        font-size: 13px;
+    }
 }
